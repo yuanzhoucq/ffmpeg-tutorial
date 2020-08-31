@@ -9,5 +9,10 @@
 # Compiled Static libraries
 *.lai
 *.la
-*.a
 
+# IDE
+.idea/
+cmake-*/
+
+# Experiments
+*.ppm
