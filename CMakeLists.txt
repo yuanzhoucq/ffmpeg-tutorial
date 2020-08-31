@@ -3,12 +3,10 @@ project(FFmpeg_Tutorial C)
 
 set(CMAKE_C_STANDARD 11)
 
-if (NOT ${SDL_FOUND})
-    message(FATAL_ERROR "SDL Not found.")
-endif ()
+find_package(SDL2 REQUIRED)
 
 include_directories(FFmpeg2.5/include)
-include_directories(${SDL_INCLUDE_DIR})
+include_directories(${SDL2_INCLUDE_DIRS})
 link_directories(FFmpeg2.5/lib)
 
 
@@ -25,7 +23,7 @@ link_libraries(
         "-framework CoreFoundation"
         "-framework CoreVideo"
         "-framework VideoDecodeAcceleration"
-        ${SDL_LIBRARY}
+        ${SDL2_LIBRARIES}
 )
 
 add_executable(Tutorial01 tutorial01.c)
